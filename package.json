@@ -1,12 +1,13 @@
 {
-  "name": "ms-ds",
-  "private": true,
-  "version": "0.0.0",
+  "name": "tek-ms-ds",
+  "private": false,
+  "version": "v1.0.0",
   "type": "module",
+  "files": [
+    "dist/"
+  ],
   "scripts": {
     "dev": "vite",
-    "build": "tsc && vite build",
-    "preview": "vite preview",
     "lint": "eslint src/**/*.ts",
     "format": "prettier --write src/**/*.ts"
   },
@@ -15,9 +16,10 @@
     "@typescript-eslint/parser": "^8.61.1",
     "eslint": "^10.5.0",
     "eslint-config-prettier": "^10.1.8",
-    "jiti": "^2.7.0",
+    "jsdom": "^29.1.1",
     "prettier": "^3.8.4",
     "typescript": "~6.0.2",
-    "vite": "^8.0.12"
+    "vite": "^8.0.12",
+    "vitest": "^4.1.9"
   }
 }
