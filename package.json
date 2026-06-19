@@ -7,9 +7,8 @@
     "dist/"
   ],
   "scripts": {
-    "dev": "vite",
-    "lint": "eslint src/**/*.ts",
-    "format": "prettier --write src/**/*.ts"
+    "build": "vite build",
+    "dev": "vite"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^8.61.1",
