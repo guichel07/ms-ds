@@ -1,13 +1,190 @@
 :root {
   --bg: #0a0a0a;
-  --panel: #1c1c1e;
-  --panel-soft: #1e1e1e;
+  --panel-soft: #1c1c1e;
   --field: #2c2c2e;
   --line: #2a2a2a;
-  --text: #fff;
-  --muted: #666;
-  --muted2: #888;
+  --muted: #777;
   --orange: #ff6b35;
-  --green: #2ecc71;
-  --red: #e74c3c;
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: -apple-system, "Segoe UI", system-ui, sans-serif;
+  background: var(--bg);
+  color: #fff;
+}
+
+/* ============================================
+     HEADER — mobile first (par défaut = empilé)
+     ============================================ */
+.app-header {
+  background: var(--panel-soft);
+  padding: 10px 16px 12px;
+}
+
+/* Ligne marque : logo + nom */
+.brand-row {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin-bottom: 12px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--line);
+}
+.brand-row svg {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.wordmark {
+  font-size: 11px;
+  font-weight: 800;
+}
+.wordmark span {
+  color: var(--orange);
+}
+
+/* Ligne profil + badge */
+.header-main {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+}
+.seller {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+}
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  background: var(--orange);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+  font-weight: 800;
+  color: #fff;
+}
+.seller .name {
+  font-size: 11px;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.seller .role {
+  font-size: 8.5px;
+  color: var(--muted);
+  white-space: nowrap;
+}
+
+.daily-badge {
+  background: rgba(255, 107, 53, 0.1);
+  border: 1px solid var(--orange);
+  border-radius: 10px;
+  padding: 6px 12px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.daily-badge .lab {
+  font-size: 6.5px;
+  color: var(--orange);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  display: block;
+}
+.daily-badge .amt {
+  font-size: 11px;
+  color: var(--orange);
+  font-weight: 700;
+}
+
+/* Déconnexion : cachée par défaut (mobile) */
+.logout-link {
+  display: none;
+  color: var(--muted);
+  font-size: 11px;
+  cursor: pointer;
+  text-decoration: underline;
+  flex-shrink: 0;
+}
+.logout-link:hover {
+  color: #ccc;
+}
+
+/* ============================================
+     BREAKPOINT DESKTOP — tout sur une seule ligne
+     ============================================ */
+@media (min-width: 768px) {
+  .app-header {
+    padding: 14px 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* la ligne "marque" redevient un simple bloc à gauche,
+       sans bordure ni marge puisqu'on est sur une seule rangée */
+  .brand-row {
+    margin-bottom: 0;
+    padding-bottom: 0;
+    border-bottom: none;
+    gap: 10px;
+  }
+  .brand-row svg {
+    width: 26px;
+    height: 26px;
+  }
+  .wordmark {
+    font-size: 15px;
+  }
+
+  /* le reste (profil + badge + déconnexion) devient un groupe à droite */
+  .header-main {
+    gap: 24px;
+  }
+
+  .daily-badge {
+    padding: 8px 16px;
+    border-radius: 12px;
+  }
+  .daily-badge .lab {
+    font-size: 8px;
+  }
+  .daily-badge .amt {
+    font-size: 14px;
+  }
+
+  .avatar {
+    width: 36px;
+    height: 36px;
+    font-size: 11px;
+  }
+  .seller .name {
+    font-size: 12.5px;
+  }
+  .seller .role {
+    font-size: 10px;
+  }
+
+  .logout-link {
+    display: inline;
+  }
+}
+
+/* zone de démo en dessous, juste pour visualiser */
+.demo-note {
+  padding: 30px 24px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.6;
+  max-width: 560px;
+}
+.demo-note b {
+  color: #ddd;
 }
