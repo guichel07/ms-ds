@@ -1,11 +1,13 @@
 :root {
-  --color-primary: #3b82f6;
-}
-
-.text-primary {
-  color: var(--color-primary);
-}
-
-.bg-primary {
-  background-color: var(--color-primary);
+  --bg: #0a0a0a;
+  --panel: #1c1c1e;
+  --panel-soft: #1e1e1e;
+  --field: #2c2c2e;
+  --line: #2a2a2a;
+  --text: #fff;
+  --muted: #666;
+  --muted2: #888;
+  --orange: #ff6b35;
+  --green: #2ecc71;
+  --red: #e74c3c;
 }
