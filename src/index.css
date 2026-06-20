@@ -193,3 +193,22 @@ body {
 .demo-note b {
   color: #ddd;
 }
+
+/* ============================================
+     FOOTER — Desktop first ( Disparait quand c'est mobile)
+     ============================================ */
+.app-footer {
+  background: var(--panel-soft);
+  border-top: 1px solid var(--line);
+  text-align: center;
+  padding: 10px;
+  font-size: 11px;
+  color: var(--muted);
+}
+
+/* Caché sur mobile : la tabbar prend déjà cette place */
+@media (max-width: 767px) {
+  .app-footer {
+    display: none;
+  }
+}

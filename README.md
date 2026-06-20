@@ -67,3 +67,14 @@ npm run build
 ## License
 
 MIT
+
+
+livraisaon
+
+ mise à jour du packge json 
+   "version": "v1.0.5",
+ npm i
+ git add .
+ git commit -m "chore:v1.0.5"
+git tag v1.0.5
+git push origin v1.0.5
