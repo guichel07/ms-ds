@@ -1672,6 +1672,17 @@ footer.app-footer {
     background: rgba(201, 91, 44, 0.1);
     font-weight: 600;
   }
+  nav.side-left .nav-item .nav-badge {
+    margin-left: auto;
+    background: var(--clay-bright);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 10px;
+    font-family: var(--font-mono);
+    line-height: 1.4;
+  }
   nav.side-left .nav-item:hover {
     color: var(--cream);
   }
@@ -1709,6 +1720,9 @@ footer.app-footer {
     width: 320px;
     flex-shrink: 0;
     border-left: 1px solid var(--ink-line);
+  }
+  .body-wrap.no-cart aside.cart-panel {
+    display: none !important;
   }
 
   .section-menu-btn {
