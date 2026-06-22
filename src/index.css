@@ -1391,6 +1391,12 @@ footer.app-footer {
   color: var(--gold);
 }
 
+.status-pill.completed {
+  background: rgba(46, 204, 113, 0.18);
+  color: #2ecc71;
+  border: 1px solid #2ecc71;
+}
+
 /* =================================================================
      CLIENTS — directory cards
   =================================================================== */

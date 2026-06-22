@@ -1,7 +1,7 @@
 {
   "name": "tek-ms-ds",
   "private": false,
-  "version": "v1.0.10",
+  "version": "v1.0.11",
   "type": "module",
   "files": [
     "dist/"
