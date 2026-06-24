@@ -294,7 +294,6 @@ button {
      APP SHELL
   =================================================================== */
 #app-screen {
-  display: none;
   min-height: 100vh;
   flex-direction: column;
   background: var(--ink);
