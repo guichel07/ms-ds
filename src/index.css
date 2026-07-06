@@ -1790,3 +1790,14 @@ footer.app-footer {
     width: 340px;
   }
 }
+
+.pqty {
+  font-size: 12px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.pqty-alert {
+  color: #dc2626;
+  font-weight: 600;
+}
