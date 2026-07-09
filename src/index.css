@@ -1801,3 +1801,7 @@ footer.app-footer {
   color: #dc2626;
   font-weight: 600;
 }
+
+.change-row.insufficient .amt {
+  color: var(--red, #e53935);
+}
