@@ -1805,3 +1805,54 @@ footer.app-footer {
 .change-row.insufficient .amt {
   color: var(--red, #e53935);
 }
+
+.change-row {
+  background: var(--ink);
+  border-radius: 11px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 10px 0 12px;
+  padding: 11px 15px;
+  transition: background 0.15s;
+}
+
+.change-row .lab {
+  color: var(--cream-muted);
+  font-size: 10px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.change-row .amt {
+  color: var(--green);
+  font-size: 17px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.change-row.insufficient {
+  background: var(--ink-soft);
+  border: 1px solid var(--rust);
+}
+
+.change-row.insufficient .amt {
+  color: var(--rust);
+}
+
+.change-row.insufficient .lab {
+  color: #f0a9a4;
+}
+
+/* Bouton confirmer désactivé — même famille visuelle que .btn-cancel */
+.btn-confirm:disabled {
+  background: var(--paper-deep);
+  color: var(--ink-muted);
+  cursor: not-allowed;
+}
+
+.btn-confirm:disabled:hover {
+  background: var(--paper-deep);
+}
