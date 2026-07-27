@@ -3137,6 +3137,316 @@ footer.app-footer {
 }
 
 /* =================================================================
+     STATS — évolution dans le temps, switch de métrique, badges de rang
+  =================================================================== */
+.mss-amt-row {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.mss-amt-benef {
+  color: var(--gold);
+  font-size: 15px;
+}
+.mss-delta {
+  font-family: var(--font-mono);
+  font-size: 9.5px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 20px;
+}
+.mss-delta.pos {
+  color: var(--green);
+  background: rgba(63, 125, 88, 0.13);
+}
+.mss-delta.neg {
+  color: var(--rust);
+  background: rgba(178, 58, 51, 0.12);
+}
+.mss-foot {
+  display: block;
+  font-size: 9px;
+  color: var(--ink-muted);
+  margin-top: 1px;
+}
+.mss-foot.mss-foot-focus {
+  color: var(--clay);
+  font-weight: 600;
+}
+.mss-focus-clear {
+  text-decoration: underline;
+  cursor: pointer;
+}
+.mss-hero {
+  transition: border-color 0.18s;
+}
+.mss-hero.mss-focused {
+  border-color: var(--clay);
+}
+
+.mss-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+.mss-toolbar-title {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+}
+.mss-metric-switch {
+  display: flex;
+  flex-shrink: 0;
+  background: #fff;
+  border: 1px solid var(--paper-line);
+  border-radius: 20px;
+  padding: 2px;
+}
+.mss-metric-btn {
+  border: none;
+  background: transparent;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.15s, color 0.15s;
+}
+.mss-metric-btn.active {
+  background: var(--clay);
+  color: #fff;
+}
+.mss-metric-btn.active[data-metric='benefice'] {
+  background: var(--green);
+}
+.mss-metric-btn:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 1px;
+}
+
+.mss-trend-card {
+  background: #fff;
+  border: 1px solid var(--paper-line);
+  border-radius: 14px;
+  padding: 14px 14px 10px;
+  margin-bottom: 12px;
+}
+.mss-trend-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+.mss-trend-title {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+}
+.mss-trend-total {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--clay);
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+  transition: color 0.15s;
+}
+.mss-trend-total.mss-focus-active {
+  color: var(--ink);
+}
+.mss-trend-grid {
+  position: relative;
+  height: 78px;
+  display: flex;
+  align-items: flex-end;
+  gap: 3px;
+  background-image: linear-gradient(to top, var(--paper-line) 1px, transparent 1px);
+  background-size: 100% 26px;
+  background-position: bottom;
+}
+.mss-trend-bar-wrap {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  min-width: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  cursor: pointer;
+}
+.mss-trend-val {
+  position: absolute;
+  left: 50%;
+  white-space: nowrap;
+  font-size: 7px;
+  font-family: var(--font-mono);
+  color: var(--ink-muted);
+  transform: translate(-50%, calc(-100% - 3px));
+  pointer-events: none;
+}
+.mss-dense .mss-trend-val {
+  display: none;
+}
+.mss-trend-bar {
+  width: 100%;
+  opacity: 0.5;
+  min-height: 2px;
+  border-radius: 3px 3px 1px 1px;
+  transition: height 0.35s cubic-bezier(0.2, 0.8, 0.3, 1), opacity 0.15s;
+}
+.mss-trend-bar.mss-metric-ca {
+  background: var(--clay-bright);
+}
+.mss-trend-bar.mss-metric-benefice {
+  background: var(--green);
+}
+.mss-trend-bar-wrap:hover .mss-trend-bar {
+  opacity: 0.75;
+}
+.mss-trend-bar.mss-endpoint {
+  opacity: 0.85;
+}
+.mss-trend-bar-wrap.mss-focused .mss-trend-bar {
+  opacity: 1;
+  background: var(--ink) !important;
+}
+.mss-trend-bar-wrap.mss-focused .mss-trend-val {
+  color: var(--ink);
+  font-weight: 700;
+}
+.mss-trend-labels {
+  display: flex;
+  gap: 3px;
+  margin-top: 5px;
+}
+.mss-trend-labels span {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+  font-size: 7px;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+}
+.mss-trend-hint {
+  text-align: center;
+  font-size: 8.5px;
+  color: var(--ink-muted);
+  margin-top: 9px;
+}
+
+.mss-chart-card {
+  background: #fff;
+  border: 1px solid var(--paper-line);
+  border-radius: 14px;
+  padding: 14px 14px 10px;
+  margin-bottom: 14px;
+}
+.mss-chart-title {
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  margin-bottom: 16px;
+}
+.mss-chart-title b {
+  color: var(--clay);
+}
+.mss-chart-grid {
+  position: relative;
+  height: 96px;
+  display: flex;
+  align-items: flex-end;
+  gap: 10px;
+  background-image: linear-gradient(to top, var(--paper-line) 1px, transparent 1px);
+  background-size: 100% 24px;
+  background-position: bottom;
+}
+.mss-chart-bar-wrap {
+  position: relative;
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+.mss-chart-val {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  white-space: nowrap;
+  font-size: 8px;
+  font-weight: 700;
+  color: var(--ink);
+  font-family: var(--font-mono);
+  transform: translate(-50%, calc(-100% - 4px));
+}
+.mss-chart-bar {
+  width: 100%;
+  max-width: 28px;
+  margin: 0 auto;
+  min-height: 2px;
+  border-radius: 6px 6px 2px 2px;
+  transition: height 0.35s cubic-bezier(0.2, 0.8, 0.3, 1);
+}
+.mss-chart-labels {
+  display: flex;
+  gap: 10px;
+  margin-top: 6px;
+}
+.mss-chart-labels span {
+  flex: 1;
+  text-align: center;
+  font-size: 8px;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+}
+
+.mss-rank {
+  display: inline-block;
+  font-size: 7.5px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  padding: 3px 8px;
+  border-radius: 20px;
+  font-family: var(--font-mono);
+}
+.mss-rank.gold {
+  background: rgba(198, 138, 31, 0.18);
+  color: var(--gold);
+}
+.mss-rank.silver {
+  background: rgba(140, 127, 104, 0.14);
+  color: var(--ink-muted);
+}
+.mss-rank.bronze {
+  background: rgba(150, 58, 24, 0.14);
+  color: var(--clay-deep);
+}
+.mss-secondary {
+  font-size: 9px;
+  color: var(--ink-muted);
+  font-family: var(--font-mono);
+  margin-top: 6px;
+  padding-top: 6px;
+  border-top: 1px dashed var(--paper-line);
+}
+.mss-secondary b {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+/* =================================================================
      PARAMÈTRES — profile, toggles, security
   =================================================================== */
 .settings-stack {
@@ -3404,6 +3714,17 @@ footer.app-footer {
   .clients-grid {
     grid-template-columns: repeat(auto-fill, minmax(216px, 1fr));
     gap: 14px;
+  }
+
+  .mss-trend-grid {
+    height: 120px;
+  }
+  .mss-chart-grid {
+    height: 130px;
+  }
+  .mss-dense .mss-trend-val {
+    display: block;
+    font-size: 6px;
   }
 
   .overlay {
