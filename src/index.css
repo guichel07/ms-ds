@@ -3801,7 +3801,9 @@ footer.app-footer {
   border: 1px solid var(--paper-line);
   border-radius: 16px;
   padding: 16px;
-  max-height: 86vh;
+  position: sticky;
+  top: 16px;
+  max-height: calc(100vh - 32px);
   overflow-y: auto;
 }
 
