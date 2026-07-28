@@ -3889,6 +3889,46 @@ footer.app-footer {
   white-space: nowrap;
   cursor: pointer;
 }
+.cs-alert-warning {
+  background: rgba(198, 138, 31, 0.1);
+  border-color: rgba(198, 138, 31, 0.3);
+}
+.cs-alert-warning .cs-alert-text b { color: var(--gold); }
+
+.ss-avatar-wrap { position: relative; flex-shrink: 0; }
+.ss-status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  border: 2px solid var(--paper);
+}
+.ss-status-ok { background: var(--green); }
+.ss-status-warning { background: var(--gold); }
+.ss-status-critical { background: var(--rust); }
+
+.ss-bar-inactive { background: var(--paper-line) !important; }
+
+.ss-shift-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 12px;
+  background: var(--paper);
+  border: 1px dashed var(--paper-line);
+  border-radius: 10px;
+  margin-bottom: 14px;
+  font-size: 10.5px;
+  flex-wrap: wrap;
+}
+.ss-shift-day {
+  font-family: var(--font-mono);
+  color: var(--ink-muted);
+  font-size: 9px;
+}
 
 .cs-kpi-grid {
   display: grid;
