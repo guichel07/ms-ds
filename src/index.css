@@ -1063,6 +1063,27 @@ footer.app-footer {
 .qty-row button:hover {
   border-color: var(--clay);
 }
+.qty-row.qty-presets {
+  gap: 10px;
+}
+.qty-preset {
+  width: auto;
+  height: 44px;
+  padding: 0 16px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+.qty-preset.selected {
+  background: var(--clay);
+  border-color: var(--clay);
+  color: #fff;
+}
+.qty-preset.selected:hover {
+  border-color: var(--clay);
+}
 .qty-row input {
   width: 58px;
   height: 38px;
