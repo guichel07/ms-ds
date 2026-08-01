@@ -1066,7 +1066,7 @@ footer.app-footer {
 .qty-row.qty-presets {
   gap: 10px;
 }
-.qty-preset {
+.qty-row .qty-preset {
   width: auto;
   height: 44px;
   padding: 0 16px;
@@ -1076,12 +1076,12 @@ footer.app-footer {
   font-family: var(--font-mono);
   white-space: nowrap;
 }
-.qty-preset.selected {
+.qty-row .qty-preset.selected {
   background: var(--clay);
   border-color: var(--clay);
   color: #fff;
 }
-.qty-preset.selected:hover {
+.qty-row .qty-preset.selected:hover {
   border-color: var(--clay);
 }
 .qty-row input {
