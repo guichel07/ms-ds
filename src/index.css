@@ -1096,6 +1096,30 @@ footer.app-footer {
   font-weight: 600;
 }
 
+.qty-row.mode-selector {
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.qty-row .mode-btn {
+  width: auto;
+  height: 38px;
+  padding: 0 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  font-family: var(--font-body);
+  white-space: nowrap;
+}
+.qty-row .mode-btn.selected {
+  background: var(--clay);
+  border-color: var(--clay);
+  color: #fff;
+}
+.qty-row .mode-btn.selected:hover {
+  border-color: var(--clay);
+}
+
 .sheet-actions {
   display: flex;
   gap: 10px;
